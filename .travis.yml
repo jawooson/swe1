@@ -1,19 +1,12 @@
 language: python
 
-python:
-  - 3.7
-
-install:
-  - pip install -r requirements.txt
-
-before_script:
-  - python manage.py migrate
-  - python manage.py collectstatic --noinput
+install: pip install -r requirements.txt
 
 script:
-  - black --check .
-  - flake8 .
-  - coverage run --source=swe1,polls manage.py test
+- python manage.py migrate
+- flake8 .
+- black --check --diff .
+- coverage run --source=polls,swe1app manage.py test # the --source part is so that it only considers test coverage for my work, not for other miscellaneous files
 
 after_script:
-  - coveralls
+- coveralls
