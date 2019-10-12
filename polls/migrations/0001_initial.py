@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Choice',
             fields=[
                 (
-                    'id', 
+                    'id',
                     models.AutoField(
                         auto_created=True,
                         primary_key=True,
