@@ -1,0 +1,12 @@
+language: python
+
+install: pip install -r requirements.txt
+
+script:
+- python manage.py migrate
+- flake8 .
+- black --check --diff .
+- coverage run --source=polls,swe1app manage.py test
+
+after_script:
+- coveralls
