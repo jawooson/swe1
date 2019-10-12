@@ -5,8 +5,8 @@ install: pip install -r requirements.txt
 script:
 - python manage.py migrate
 - flake8 .
-- black --check --diff .
-- coverage run --source=polls,swe1app manage.py test # the --source part is so that it only considers test coverage for my work, not for other miscellaneous files
+- black --diff .
+- coverage run --source=polls,jwoo_swe1 manage.py test
 
 after_script:
 - coveralls
